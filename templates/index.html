@@ -1,0 +1,81 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="darkreader-lock">
+
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css.js') }}">
+
+    <script src="../static/script.js" defer></script>
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+    
+    <title>Algorithm Visualisation | msr8</title>
+</head>
+
+
+
+<body>
+    <!-- Warning: with a high number of points, some graphs may take a log time to render -->
+    <details id="data-generation">
+        <summary id="dgs" class="dropdown-summary" onclick="onclick_dgs()" onmouseover="onmouseover_dgs()" onmouseout="onmouseout_dgs()">Data Generation Hyperparameters</summary>
+        <div id="dgd" class="dropdown-inner">
+            
+            <div id="dg-n-samples" class="bottom-padding">
+                Number of Samples: <span style="width:5px; display:inline-block;"></span>
+                (slider) (slider value)
+            </div>   
+            
+            <div id="dg-template" class="bottom-padding">
+                Type: <span style="width:5px; display:inline-block;"></span>
+                <select onchange="onchange_dg_template()" id="dg-template-input">
+                    <option value="make_classification">Random Clusters</option>
+                    <option value="make_moons">Moons</option>
+                    <option value="make_circles">Circles</option>
+                </select>
+            </div>
+
+            <div id="dg-noise" class="bottom-padding">
+                Noise: <span style="width:5px; display:inline-block;"></span>
+                (slider) (slider value)
+            </div>
+
+            <div id="dg-factor" class="bottom-padding">
+                Factor: <span style="width:5px; display:inline-block;"></span>
+                (slider) (slider value)
+            </div>
+
+            <div id="dg-class-sep" class="bottom-padding">
+                Class seperation: <span style="width:5px; display:inline-block;"></span>
+                (slider) (slider value)
+            </div>
+
+            <div id="dg-n-classes" class="bottom-padding">
+                Number of classes: <span style="width:5px; display:inline-block;"></span>
+                <select>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+        
+        </div>
+    </details>
+
+
+
+    <br>
+
+
+
+    <details>
+        <summary id="mhs" class="dropdown-summary" onclick="onclick_mhs()" onmouseover="onmouseover_mhs()" onmouseout="onmouseout_mhs()">Models' Hyperparameters</summary>
+        <div id="mhd">
+            Ola
+        </div>
+    </details>
+</body>
+
+
+</html>
