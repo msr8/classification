@@ -22,36 +22,36 @@
         <summary id="dgs" class="dropdown-summary" onclick="onclick_dgs()" onmouseover="onmouseover_dgs()" onmouseout="onmouseout_dgs()">Data Generation Hyperparameters</summary>
         <div id="dgd" class="dropdown-inner">
             
-            <div id="dg-n-samples" class="bottom-padding">
+            <div id="dgd-n-samples" class="attribute-input">
                 Number of Samples: <span style="width:5px; display:inline-block;"></span>
                 (slider) (slider value)
             </div>   
             
-            <div id="dg-template" class="bottom-padding">
+            <div id="dgd-template" class="attribute-input">
                 Type: <span style="width:5px; display:inline-block;"></span>
-                <select onchange="onchange_dg_template()" id="dg-template-input">
+                <select id="dgd-template-input" onchange="onchange_dgd_template()">
                     <option value="make_classification">Random Clusters</option>
                     <option value="make_moons">Moons</option>
                     <option value="make_circles">Circles</option>
                 </select>
             </div>
 
-            <div id="dg-noise" class="bottom-padding">
+            <div id="dgd-noise" class="attribute-input">
                 Noise: <span style="width:5px; display:inline-block;"></span>
                 (slider) (slider value)
             </div>
 
-            <div id="dg-factor" class="bottom-padding">
+            <div id="dgd-factor" class="attribute-input">
                 Factor: <span style="width:5px; display:inline-block;"></span>
                 (slider) (slider value)
             </div>
 
-            <div id="dg-class-sep" class="bottom-padding">
+            <div id="dgd-class-sep" class="attribute-input">
                 Class seperation: <span style="width:5px; display:inline-block;"></span>
                 (slider) (slider value)
             </div>
 
-            <div id="dg-n-classes" class="bottom-padding">
+            <div id="dgd-n-classes" class="attribute-input">
                 Number of classes: <span style="width:5px; display:inline-block;"></span>
                 <select>
                     <option value="2">2</option>
@@ -70,10 +70,157 @@
 
 
     <details>
-        <summary id="mhs" class="dropdown-summary" onclick="onclick_mhs()" onmouseover="onmouseover_mhs()" onmouseout="onmouseout_mhs()">Models' Hyperparameters</summary>
-        <div id="mhd">
-            Ola
+        <summary id="mhs" class="dropdown-summary" onclick="onclick_mhs()" onmouseover="onmouseover_mhs()" onmouseout="onmouseout_mhs()">Models' Hyperparameters</summary>    
+        <div id="mhd" class="dropdown-inner">
+            
+
+            <div id="mhd-knn" class="mhd-inner-div">
+                <div class="mhd-subheading">KNN (K Nearest Neighbours)</div>
+                
+                <div id="mhd-knn-k" class="attribute-input">
+                    Number of Neighbors (k): <span style="width:5px; display:inline-block;"></span>
+                    (slider) (slider value)
+                </div>
+
+                <div id="mhd-knn-distance-metric" class="attribute-input">
+                    Distance metric: <span style="width:5px; display:inline-block;"></span>
+                    <select id="mhd-knn-distance-metric-input">
+                        <option value="chebyshev"  >Chebyshev</option>
+                        <option value="cosine"     >Cosine</option>
+                        <option value="euclidean"  >Euclidean (L2)</option>
+                        <option value="haversine"  >Haversine</option>
+                        <option value="manhattan"  >Manhattan (City Block/L1)</option>
+                        <option value="minkowski"  >Minkowski</option>
+                        <option value="sqeuclidean">Sqaured Euclidean</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div id="mhd-svm" class="mhd-inner-div">
+                <div class="mhd-subheading">SVM (Support Vector Machine)</div>
+                
+                <div id="mhd-svm-kernel" class="attribute-input">
+                    Kernel: <span style="width:5px; display:inline-block;"></span>
+                    <select id="mhd-svm-kernel-input" onchange="onchange_mhd_svm_kernel()">
+                        <option value="linear"  >Linear</option>
+                        <option value="poly"    >Polynomial</option>
+                        <option value="rbf"     >Radial Basis Function (RBF)</option>
+                        <option value="sigmoid" >Sigmoid</option>
+                    </select>
+                </div>
+
+                <div id="mhd-svm-c" class="attribute-input">
+                    Regularization parameter (C): <span style="width:5px; display:inline-block;"></span>
+                    (slider) (slider value)
+                </div>
+
+                <div id="mhd-svm-degree" class="attribute-input">
+                    Degree: <span style="width:5px; display:inline-block;"></span>
+                    (slider) (slider value)
+                </div>
+                
+                <div id="mhd-svm-gamma" class="attribute-input">
+                    Kernel coefficient (gamma): <span style="width:5px; display:inline-block;"></span>
+                    <select id="mhd-svm-gamma-input" onchange="onchange_mhd_svm_gamma()">
+                        <option value="scale">Scale</option>
+                        <option value="auto" >Auto</option>
+                        <option value="float">Float</option>
+                    </select>
+                    <span style="width:5px; display:inline-block;"></span>
+                    <div id="mhd-svm-gamma-float" class="attribute-input" style="display: inline;">
+                        (slider) (slider value)
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="mhd-lr" class="mhd-inner-div">
+                <div class="mhd-subheading">Logistic Regression</div>
+                
+                <div id="mhd-lr-penalty" class="attribute-input">
+                    Penalty: <span style="width:5px; display:inline-block;"></span>
+                    <select id="mhd-lr-penalty-input" onchange="onchange_mhd_lr_penalty()">
+                        <option value="l1"         >L1</option>
+                        <option value="l2"         >L2</option>
+                        <option value="elasticnet" >Elastic Net</option>
+                        <option value="none"       >None</option>
+                    </select>
+                </div>
+
+                <div id="mhd-lr-c" class="attribute-input">
+                    Regularization parameter (C): <span style="width:5px; display:inline-block;"></span>
+                    (slider) (slider value)
+                </div>
+
+                <div id="mhd-lr-l1-ratio" class="attribute-input">
+                    L1 ratio: <span style="width:5px; display:inline-block;"></span>
+                    <select id="mhd-lr-l1-ratio-input" onchange="onchange_mhd_lr_l1_ratio()">
+                        <option value="none">None</option>
+                        <option value="float">Float</option>
+                    </select>
+                    <span style="width:5px; display:inline-block;"></span>
+                    <div id="mhd-lr-l1-ratio-float" class="attribute-input" style="display: inline;">
+                        (slider) (slider value)
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="mhd-subheading">Desicion Tree</div>
+                
+                <div id="mhd-dt-criterion" class="attribute-input">
+                    Criterion: <span style="width:5px; display:inline-block;"></span>
+                    <select>
+                        <option value="entropy"  >Entropy</option>
+                        <option value="gini"     >Gini</option>
+                        <option value="log_loss" >Log Loss</option>
+                    </select>
+                </div>
+
+                <div id="mhd-dt-splitter" class="attribute-input">
+                    Splitter: <span style="width:5px; display:inline-block;"></span>
+                    <select>
+                        <option value="best"   >Best</option>
+                        <option value="random" >Random</option>
+                    </select>
+                </div>
+
+                <div id="mhd-dt-max-depth" class="attribute-input">
+                    Max Depth: <span style="width:5px; display:inline-block;"></span>
+                    <select id="mhd-dt-max-depth-input" onchange="onchange_mhd_dt_max_depth()">
+                        <option value="none">Until all leaves are pure</option>
+                        <option value="integer">Integer</option>
+                    </select>
+                    <span style="width:5px; display:inline-block;"></span>
+                    <div id="mhd-dt-max-depth-int" class="attribute-input" style="display: inline;">
+                        (slider) (slider value)
+                    </div>
+                </div>
+
+                <div id="mhd-dt-max-features" class="attribute-input">
+                    Max Features: <span style="width:5px; display:inline-block;"></span>
+                    <select id="mhd-dt-max-features-input" onchange="onchange_mhd_dt_max_features()">
+                        <option value="none">    All</option>
+                        <option value="sqrt">    Square root of the number of features</option>
+                        <option value="log2">    Log base 2 of the number of features</option>
+                        <option value="integer"> Integer</option>
+                        <option value="float">   Float</option>
+                    </select>
+                    <span style="width:5px; display:inline-block;"></span>
+                    <div id="mhd-dt-max-features-int" class="attribute-input" style="display: inline;">
+                        (slider) (slider value)
+                    </div>
+                    <div id="mhd-dt-max-features-float" class="attribute-input" style="display: inline;">
+                        (slider) (slider value)
+                    </div>
+                </div>
+            </div>
+
+        
         </div>
+
+
     </details>
 </body>
 

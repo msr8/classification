@@ -53,26 +53,18 @@ LIMITS = {
     'n_estimators':            (1,    1000),
 }
 
-valid_distance_metrics = list(distance_metrics().keys())
-valid_distance_metrics.remove('precomputed')   # This requires a distance matrix
-valid_distance_metrics.remove('nan_euclidean') # This just hangs the program for some reason
-
 INCLUSIONS = {
     # No model
     'template':           ['make_circles', 'make_moons', 'make_classification'],
     'classifier':         ['none', 'svm', 'knn', 'decision_tree', 'random_forest', 'extra_trees', 'logistic_regression'],
     'cmap':               sorted(plt.colormaps()),
     # KNN
-    'distance_metric':    valid_distance_metrics,
+    'distance_metric':    ['chebyshev', 'cosine', 'euclidean', 'haversine', 'manhattan', 'minkowski', 'sqeuclidean'], # seuclidean (Standardised Euclidean) throws an error for some reason
     # SVM
     'kernel':             ['linear', 'poly', 'rbf', 'sigmoid'],
     'gamma':              ['scale', 'auto'],
     # Logistic Regression
     'penalty':            ['l1', 'l2', 'elasticnet', 'none'],
-    'solver_l1':          ['liblinear', 'saga'],
-    'solver_l2':          ['newton-cg', 'lbfgs', 'sag', 'saga'],
-    'solver_elasticnet':  ['saga'],
-    'solver_none':        ['newton-cg', 'lbfgs', 'sag', 'saga'],
     # Decision Trees
     'criterion':          ['gini', 'entropy', 'log_loss'],
     'splitter':           ['best', 'random'],
@@ -235,7 +227,7 @@ def node_plot():
     needed_args  = ['classifier', 'cmap', 'alpha', 'markersize'] # No model
     needed_args += ['k', 'distance_metric']                      # KNN
     needed_args += ['kernel', 'c', 'gamma', 'degree']            # SVM
-    needed_args += ['penalty', 'c', 'solver', 'l1_ratio']        # Logistic Regression
+    needed_args += ['penalty', 'c', 'l1_ratio']                  # Logistic Regression
     needed_args += ['criterion', 'splitter', 'max_depth', 'max_features']     # Decision Trees
     needed_args += ['n_estimators', 'criterion', 'max_depth', 'max_features'] # Random Forest & Extra Trees
     for i in needed_args:
@@ -316,10 +308,6 @@ def node_plot():
         # Check if c was provided and if it is valid
         if args['c'] is None:                                               return ERROR(24)
         if not ( LIMITS['c'][0] <= float(args['c']) <= LIMITS['c'][1] ):    return ERROR(25)
-        # Check if solver was provided and if it is valid
-        valid_solvers = INCLUSIONS[f'solver_{args["penalty"]}']
-        if args['solver'] is None:                 return ERROR(32)
-        if args['solver'] not in valid_solvers:    return ERROR(33, valid_solvers=valid_solvers)
         # If the penalty is 'elasticnet', check if l1_ratio was provided and if it is valid
         if args['penalty'] == 'elasticnet':
             if args['l1_ratio'] is None:                                                             return ERROR(34)
@@ -327,7 +315,7 @@ def node_plot():
         # If the penalty is 'elasticnet', set the l1_ratio to the given float. Else, set it to None
         l1_ratio = float(args['l1_ratio']) if args['penalty'] == 'elasticnet' else None
         # Create the classifier
-        clf = LogisticRegression( penalty=args['penalty'] , C=float(args['c']) , solver=args['solver'], l1_ratio=l1_ratio )
+        clf = LogisticRegression( penalty=args['penalty'] , C=float(args['c']) , l1_ratio=l1_ratio , solver='saga' )
 
 
     # If the classifier is decision tree
