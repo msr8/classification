@@ -1,16 +1,24 @@
 @import url('https://msr8.dev/style.css');
-@import url('https://fonts.googleapis.com/css?family=Inter:400,800&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Inter:400,500,800|Comfortaa:400&display=swap');
 
 
 :root {
-    --border-radius: 10px;
-    --vertical-padding: 7px;
+    --dg-color:             rgba(0,255,255,   {{alpha}});
+    --mh-color:             rgba(255,100,130, {{alpha}});
+    --inactive-alpha:       0.1;
+    --active-alpha:         0.3;
+    --border-radius:        10px;
+    --border-radius-button: calc( var(--border-radius) / 2 );
+    --vertical-padding:     7px;
+    --main-font:           'Inter';
+    --slant:               -40deg;
+    /* --main-font:            'Comfortaa'; */
 }
 
 html {
     background-color: var(--bg-color);
     color: var(--fg-color);
-    font-family: 'Inter';
+    font-family: var(--main-font);
     font-weight: 400;
 }
 
@@ -49,58 +57,56 @@ html {
 }
 
 
-
-#n-samples-slider {
-    width: 100%;
-    /* Make it in middle vertically */
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.flex-container {
+#buttons {
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
-.flex-container > * {
-    margin: 10px;
+button {
+    font-family: Comfortaa;
+    font-size: 1em;
+    font-weight: 800;
+    color: var(--fg-color);
+    background-color: rgb(30,30,30);
+    cursor: pointer;
+
+    transform: skewX( var(--slant) );
+    width: 48%; /* 49.3% */
+    text-align: center;
+
+    border-color: var(--fg-color);
+    border-width: 1px;
+    border-style: solid;
+    padding: 10px;
+
+    transition: 1s ease-out;
 }
 
-.slidecontainer {
-    display: inline-block;
-    width: 70%; /* Width of the outside container */
+button:hover {
+    background-color: black;
 }
 
-.slider {
-    height: 100%;
-    appearance: none;
-    width: 100%; /* Full-width */
-    background: #d3d3d3; /* Grey background */
-    outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-    transition: opacity .2s;
-  }
-  
-  /* Mouse-over effects */
-  .slider:hover {
-    opacity: 1; /* Fully shown on mouse-over */
-  }
-  
-  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-  .slider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
-    appearance: none;
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: #04AA6D; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-  }
-  
-  .slider::-moz-range-thumb {
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: #04AA6D; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-  }
+#dg-button-text {
+    transform: skewX( calc( -1 * var(--slant) ) );
+    display: inline-block; /* For some reason this is needed for un-slanting of text */
+}
+
+/* This for some reason causes weird selection squares in the first row when only the unclassified plot is generated */
+/* .plot-row {
+    display: flex;
+    justify-content: center;
+} */
+
+.plot {
+    width: 33%;
+}
+
+
+
+
+/* Select all input tags with type=number */
+input[type=number] {
+    width: 11ch; /* or 7em */
+    text-align: center;
+}
+
