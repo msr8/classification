@@ -101,6 +101,12 @@ button:hover {
     width: 33%;
 }
 
+/* On mobile, change plots to 1 per line and reduce the width of buttons */
+@media only screen and (max-width: 768px) {
+    .plot  {width: 100%;}
+    button {width: 46%;}
+}
+
 
 
 
