@@ -30,6 +30,8 @@ plt.rcParams['xtick.bottom'] = False
 plt.rcParams['xtick.labelbottom'] = False
 plt.rcParams['ytick.left'] = False
 plt.rcParams['ytick.labelleft'] = False
+# Set background color to rgb(20,20,20), ie #141414, ie the background of the website
+plt.rcParams['figure.facecolor'] = '#141414'
 
 
 
@@ -441,4 +443,4 @@ def node_plot():
 
 
 if __name__ == '__main__':
-    app.run(debug=False, port=8000, host='0.0.0.0', threaded=True)
+    app.run(debug=True, port=8000, host='0.0.0.0', threaded=True)
