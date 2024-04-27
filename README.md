@@ -8,9 +8,15 @@
 
 ![1-img](screenshots/1.png)
 
+<hr>
+
 ![2-img](screenshots/2.png)
 
+<hr>
+
 ![3-img](screenshots/3.png)
+
+<hr>
 
 ![4-img](screenshots/4.png)
 
