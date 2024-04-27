@@ -7,11 +7,11 @@
 [![GitHub issues](https://img.shields.io/github/issues/msr8/classification?color=066DA5&labelColor=302D41&style=for-the-badge)](https://github.com/msr8/classification)
 
 ![1-img](screenshots/1.png)
-<br>
+
 ![2-img](screenshots/2.png)
-<br>
+
 ![3-img](screenshots/3.png)
-<br>
+
 ![4-img](screenshots/4.png)
 
 </div>
