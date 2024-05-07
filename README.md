@@ -53,6 +53,11 @@
 
 
 # Running the website
+
+The website is already deplyed at https://msr8.dev/classification. However, if you want to run it locally, follow the steps below:
+
+<br>
+
 First of all, ensure that [git](https://git-scm.com/downloads) and [python](https://www.python.org/downloads/) are installed on your system. Then run the following commands:
 
 ```bash
