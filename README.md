@@ -6,25 +6,15 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/msr8/classification?color=7F4995&labelColor=302D41&style=for-the-badge)](https://github.com/msr8/classification)
 [![GitHub issues](https://img.shields.io/github/issues/msr8/classification?color=066DA5&labelColor=302D41&style=for-the-badge)](https://github.com/msr8/classification)
 
-![1-img](screenshots/1.png)
+<br>
 
-<hr>
-
-![2-img](screenshots/2.png)
-
-<hr>
-
-![3-img](screenshots/3.png)
-
-<hr>
-
-![4-img](screenshots/4.png)
+![screenshot](screenshots/full.png)
 
 </div>
 
 
 
-<br><hr><br>
+<br><br>
 
 
 
@@ -48,13 +38,13 @@
 
 
 
-<br><hr><br>
+<br><br>
 
 
 
 # Running the website
 
-The website is already deplyed at https://msr8.dev/classification. However, if you want to run it locally, follow the steps below:
+The website is already deployed at https://msr8.dev/classification. However, if you want to run it locally, follow the steps below:
 
 <br>
 
@@ -68,3 +58,4 @@ python main.py
 ```
 
 And voila, the website should be up and running on `http://127.0.0.1:8000`
+
