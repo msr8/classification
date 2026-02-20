@@ -1,8 +1,9 @@
-@import url('https://msr8.dev/style.css');
 @import url('https://fonts.googleapis.com/css?family=Inter:400,500,800|Comfortaa:400&display=swap');
 
 
 :root {
+    --bg-color:           rgb(20,20,20);
+    --fg-color:           rgb(255,255,255);
     --dg-color:             rgba(0,255,255,   {{alpha}});
     --mh-color:             rgba(255,100,130, {{alpha}});
     --inactive-alpha:       0.1;
